@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AlgorithmDataService } from './services/algorithm-data.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  title = 'algorithm-practice-app';
+    data: any[] = [];
+
+    constructor(public algorithmDataService: AlgorithmDataService) { }
+
+    ngOnInit(): void {
+        
+    }
+
+    fileSelected(event: any) {
+        const files = event.srcElement.files;
+
+        this.data = this.algorithmDataService.getData(files);
+    }
+
 }
