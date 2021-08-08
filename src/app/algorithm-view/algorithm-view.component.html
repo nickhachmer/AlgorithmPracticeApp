@@ -1,0 +1,50 @@
+<p-card>
+    <p-table [value]="data" dataKey="Number">
+        <ng-template pTemplate="caption">
+            <div class="table-header">
+                Algorithms
+            </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+            <tr>
+                <th style="width: 3rem"></th>
+                <td pSortableColumn="Number">Number<p-sortIcon field="Number"></p-sortIcon></td>
+                <td>Difficulty</td>
+                <td>Name</td>
+                <td>Link</td>
+                <td>Geeksforgeeks</td>
+                <td>Tags</td>
+                <td>Algorithms</td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-row let-expanded="expanded">
+            <tr>
+                <td>
+                    <button type="button" pButton pRipple [pRowToggler]="row" class="p-button-text p-button-rounded p-button-plain" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
+                </td>
+                <td>{{row.Number}}</td>
+                <td>{{row.Difficulty}}</td>
+                <td>{{row.Name}}</td>
+                <td>
+                    <a style="text-decoration:none" [href]="row.Link" target="_blank" rel="noopener noreferrer">
+                        <button type="button" pButton pRipple class="p-button-text p-button-rounded p-button-plain" icon="pi pi-external-link"></button>
+                    </a>
+                </td>
+                <td>
+                    <a style="text-decoration:none" [href]="row.Geeksforgeeks" target="_blank" rel="noopener noreferrer">
+                        <button type="button" pButton pRipple class="p-button-text p-button-rounded p-button-plain" icon="pi pi-external-link"></button>
+                    </a>
+                </td>
+                <td>{{row.Tags}}</td>
+                <td>{{row.Algorithms}}</td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="rowexpansion" let-row>
+            <tr>
+                <td colspan="8">
+                {{row.Description}}
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</p-card>

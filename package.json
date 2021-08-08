@@ -1,7 +1,11 @@
 {
   "name": "algorithm-practice-app",
   "version": "0.0.0",
-  "browser": { "fs": false, "path": false, "os": false},
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -11,7 +15,7 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "~12.1.0",
+    "@angular/animations": "^12.1.5",
     "@angular/cdk": "^12.1.4",
     "@angular/common": "~12.1.0",
     "@angular/compiler": "~12.1.0",
@@ -21,6 +25,7 @@
     "@angular/platform-browser-dynamic": "~12.1.0",
     "@angular/router": "~12.1.0",
     "papaparse": "^5.3.1",
+    "primeflex": "^3.0.1",
     "primeicons": "^4.1.0",
     "primeng": "^12.0.1",
     "rxjs": "~6.6.0",
