@@ -7,6 +7,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { TableModule } from 'primeng/table';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
+import { ChipModule } from 'primeng/chip';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,9 +19,12 @@ import { ButtonModule } from 'primeng/button';
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     TableModule,
     CardModule,
-    ButtonModule
+    ButtonModule,
+    ChipModule,
+    InputTextareaModule
   ],
   providers: [],
   bootstrap: [AppComponent]
