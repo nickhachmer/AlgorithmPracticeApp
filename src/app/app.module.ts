@@ -10,6 +10,8 @@ import { ButtonModule } from 'primeng/button';
 import { ChipModule } from 'primeng/chip';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { FormsModule } from '@angular/forms';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { InputTextModule } from 'primeng/inputtext';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { FormsModule } from '@angular/forms';
     CardModule,
     ButtonModule,
     ChipModule,
-    InputTextareaModule
+    InputTextareaModule,
+    InputNumberModule,
+    InputTextModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

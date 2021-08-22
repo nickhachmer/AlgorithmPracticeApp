@@ -6,6 +6,10 @@
                     <span class="">Algorithms</span>
 
                     <button pButton class="float-right" icon="pi pi-plus" label="Add Row" (click)="addRow()"></button>
+
+                    <button *ngIf="!editing" pButton class="float-right mr-2" (click)="editClick()" label="Edit"></button>
+                    <button *ngIf="editing" pButton class="float-right mr-2" (click)="saveClick()" icon="pi pi-check" label="Save"></button>
+                    <button *ngIf="editing" pButton class="p-button-secondary float-right mr-2" (click)="cancelClick()" icon="pi pi-times" label="Cancel"></button>
                 </div>
             </ng-template>
             <ng-template pTemplate="header">
@@ -25,21 +29,37 @@
                     <td>
                         <button type="button" pButton pRipple [pRowToggler]="row" class="p-button-text p-button-rounded p-button-plain" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
                     </td>
-                    <td>{{row.number}}</td>
-                    <td>{{row.difficulty}}</td>
-                    <td>{{row.name}}</td>
+                    <td> 
+                        <p-inputNumber *ngIf="editing" class="flex" [(ngModel)]="row.number"></p-inputNumber>
+                        <span *ngIf="!editing">{{row.number}}</span>
+                    </td>
                     <td>
-                        <a *ngIf="row.link" style="text-decoration:none" [href]="row.link" target="_blank" rel="noopener noreferrer">
+                        <input pInputText *ngIf="editing" style="width: 8rem" [(ngModel)]="row.difficulty"/>
+                        <span *ngIf="!editing">{{row.difficulty}}</span>
+                    <td>
+                        <input pInputText *ngIf="editing" style="width: 25rem" [(ngModel)]="row.name"/>
+                        <span *ngIf="!editing">{{row.name}}</span>
+                    </td>
+                    <td>
+                        <input pInputText *ngIf="editing" style="width: 4rem" [(ngModel)]="row.link"/>
+                        <a *ngIf="row.link && !editing" style="text-decoration:none" [href]="row.link" target="_blank" rel="noopener noreferrer">
                             <button type="button" pButton pRipple class="p-button-text p-button-rounded p-button-plain" icon="pi pi-external-link"></button>
                         </a>
                     </td>
                     <td>
-                        <a *ngIf="row.geeksforGeeks" style="text-decoration:none" [href]="row.geeksforGeeks" target="_blank" rel="noopener noreferrer">
+                        <input pInputText *ngIf="editing" style="width: 7rem" [(ngModel)]="row.geeksforGeeks"/>
+                        <a *ngIf="row.geeksforGeeks && !editing" style="text-decoration:none" [href]="row.geeksforGeeks" target="_blank" rel="noopener noreferrer">
                             <button type="button" pButton pRipple class="p-button-text p-button-rounded p-button-plain" icon="pi pi-external-link"></button>
                         </a>
                     </td>
-                    <td><p-chip [label]="row.tags"></p-chip></td>
-                    <td>{{row.algorithms}}</td>
+                    <td>
+                        <input pInputText *ngIf="editing" style="width: 15rem" [(ngModel)]="row.tags"/>
+                        <p-chip *ngIf="!editing" [label]="row.tags"></p-chip>
+                    </td>
+                    <td>
+                        <input pInputText *ngIf="editing" style="width: 15rem" [(ngModel)]="row.algorithms"/>
+                        <span *ngIf="!editing">{{row.algorithms}}</span>
+                    </td>
                 </tr>
             </ng-template>
             <ng-template pTemplate="rowexpansion" let-row>
@@ -47,14 +67,6 @@
                     <td colspan="8">
                         <textarea *ngIf="editing" class="flex" pInputTextarea [(ngModel)]="row.description" [autoResize]="true" [rows]="2" [cols]="170"></textarea>
                         <span *ngIf="!editing">{{ row.description }}</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="8">
-                        <button *ngIf="!editing" pButton class="float-right" (click)="editClick()" label="Edit"></button>
-                    
-                        <button *ngIf="editing" pButton class="float-right" (click)="saveClick()" icon="pi pi-check" label="Save"></button>
-                        <button *ngIf="editing" pButton class="p-button-secondary float-right mr-2" (click)="cancelClick()" icon="pi pi-times" label="Cancel"></button>
                     </td>
                 </tr>
             </ng-template>

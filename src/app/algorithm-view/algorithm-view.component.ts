@@ -28,14 +28,17 @@ export class AlgorithmViewComponent implements OnInit {
   }
 
   saveClick() {
+    this.editing = false;
     this.algorithmDataService.writeData(this.data).subscribe(result => {
       console.log(result);
     });
-    this.editing = false;
   }
 
   cancelClick() {
     this.editing = false;
+    this.algorithmDataService.getData().subscribe(result => {
+      this.data = result;
+    })
   }
 
   addRow() {
