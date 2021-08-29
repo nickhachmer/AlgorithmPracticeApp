@@ -30,7 +30,7 @@
                         <button type="button" pButton pRipple [pRowToggler]="row" class="p-button-text p-button-rounded p-button-plain" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
                     </td>
                     <td> 
-                        <p-inputNumber *ngIf="editing" class="flex" [(ngModel)]="row.number"></p-inputNumber>
+                        <p-inputNumber *ngIf="editing" class="number-input" [(ngModel)]="row.number"></p-inputNumber>
                         <span *ngIf="!editing">{{row.number}}</span>
                     </td>
                     <td>
